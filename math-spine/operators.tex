@@ -1,0 +1,72 @@
+% math-spine/operators.tex
+% Shared-Horizon Preprint — Mathematical Spine
+% Module 1: Operator Geometry
+
+\section{Operator Geometry}
+\label{sec:operator-geometry}
+
+\subsection{Definition of Operators}
+
+Let $\mathcal{M}$ be a smooth manifold representing the conceptual state space
+of a lineage. An \emph{operator} is defined as a smooth map
+\[
+O : \mathcal{M} \rightarrow \mathcal{M}
+\]
+that preserves the structural invariants of the lineage.
+
+For NDH and Structural-AI systems, operators are reversible:
+\[
+O^{-1} \text{ exists and is smooth}.
+\]
+
+For expressive or narrative systems, operators may be non-reversible but must
+preserve expressive curvature (Section \ref{sec:expressive-manifolds}).
+
+\subsection{Operator Families}
+
+We define a family of operators
+\[
+\mathcal{O} = \{ O_1, O_2, \ldots, O_n \}
+\]
+such that each $O_i$ satisfies:
+
+\begin{enumerate}
+    \item Smoothness: $O_i \in C^\infty(\mathcal{M})$.
+    \item Stability: $E(O_i(p)) \leq E(p)$ for all $p \in \mathcal{M}$.
+    \item Commutativity (NDH only):
+    \[
+    O_i \circ O_j = O_j \circ O_i.
+    \]
+\end{enumerate}
+
+\subsection{Operator Composition}
+
+For any two operators $O_i, O_j \in \mathcal{O}$, their composition is defined as:
+\[
+O_i \circ O_j : \mathcal{M} \rightarrow \mathcal{M}.
+\]
+
+Composition must preserve lineage invariants. In particular:
+
+\begin{itemize}
+    \item NDH requires full commutativity.
+    \item Structural-AI requires bounded spectral drift.
+    \item Expressive and narrative systems require curvature preservation.
+\end{itemize}
+
+\subsection{Operator Stability Envelope}
+
+Let $E : \mathcal{M} \rightarrow \mathbb{R}_{\ge 0}$ be an energy or stability
+functional. An operator $O$ is stability-preserving if:
+\[
+E(O(p)) \le E(p) \quad \forall p \in \mathcal{M}.
+\]
+
+This condition prevents collapse between operator and expressive surfaces.
+
+\subsection{Operator Geometry Summary}
+
+Operators define the reversible or stability-preserving transformations that
+govern NDH, Structural-AI, and the geometric backbone of Shared-Horizon.
+They form the mathematical substrate against which expressive and narrative
+systems must be compared without collapse.
