@@ -1,0 +1,127 @@
+% math-spine/collapse-risk-geometry.tex
+% Shared-Horizon Preprint — Mathematical Spine
+% Module 6: Collapse-Risk Geometry
+
+\section{Collapse-Risk Geometry}
+\label{sec:collapse-risk-geometry}
+
+\subsection{Collapse-Risk Function}
+
+Let $\mathcal{X}$ be any lineage manifold (operator, expressive, or narrative).
+We define a collapse-risk function
+\[
+C : \mathcal{X} \rightarrow \mathbb{R}_{\ge 0}
+\]
+that measures the degree to which a point $p \in \mathcal{X}$ approaches
+another lineage’s geometry.
+
+The function $C$ must satisfy:
+
+\begin{enumerate}
+    \item Non-negativity: $C(p) \ge 0$.
+    \item Smoothness: $C \in C^\infty(\mathcal{X})$.
+    \item Minimality: $C(p) = 0$ iff $p$ is lineage-stable.
+\end{enumerate}
+
+\subsection{Collapse Boundary}
+
+The collapse boundary is defined as:
+\[
+\partial \mathcal{C} = \{ p \in \mathcal{X} \mid C(p) = \delta \}
+\]
+for some lineage-specific threshold $\delta > 0$.
+
+Crossing $\partial \mathcal{C}$ indicates conceptual collapse, such as:
+
+\begin{itemize}
+    \item expressive $\rightarrow$ operator collapse,
+    \item narrative $\rightarrow$ expressive collapse,
+    \item operator $\rightarrow$ expressive collapse,
+    \item spectral $\rightarrow$ narrative collapse.
+\end{itemize}
+
+\subsection{Collapse Gradient}
+
+The collapse gradient is defined as:
+\[
+\nabla C(p) \in T_p \mathcal{X}.
+\]
+
+The magnitude of the gradient indicates collapse acceleration:
+\[
+\| \nabla C(p) \| \quad \text{large} \quad \Rightarrow \quad \text{high collapse acceleration}.
+\]
+
+Collapse-safe transitions must satisfy:
+\[
+\| \nabla C(T(p)) \| \le \| \nabla C(p) \|.
+\]
+
+\subsection{Collapse Curvature}
+
+Collapse curvature is defined as:
+\[
+K_C(p) = \text{Curv}_{g_{\mathcal{X}}}(C)(p).
+\]
+
+High collapse curvature indicates unstable regions where small perturbations
+cause large lineage drift.
+
+Collapse-safe regions satisfy:
+\[
+|K_C(p)| < K_{\max}.
+\]
+
+\subsection{Collapse-Safe Transitions}
+
+A transition map $\Psi : \mathcal{X} \rightarrow \mathcal{X}$ is collapse-safe if:
+\[
+C(\Psi(p)) \le C(p)
+\]
+and
+\[
+\| \nabla C(\Psi(p)) \| \le \| \nabla C(p) \|.
+\]
+
+Collapse-safe transitions preserve lineage sovereignty.
+
+\subsection{Collapse-Risk Tensor}
+
+We define the collapse-risk tensor:
+\[
+\mathcal{T}_C(p) = \nabla^2 C(p)
+\]
+which measures second-order collapse behavior.
+
+Collapse-safe regions satisfy:
+\[
+\| \mathcal{T}_C(p) \| < T_{\max}.
+\]
+
+This tensor is used to detect collapse-prone curvature wells.
+
+\subsection{Cross-Lineage Collapse Geometry}
+
+For two lineages $\mathcal{X}$ and $\mathcal{Y}$, collapse geometry is defined
+using a cross-lineage collapse map:
+\[
+\Gamma : \mathcal{X} \rightarrow \mathcal{Y}.
+\]
+
+Collapse occurs when:
+\[
+C_{\mathcal{Y}}(\Gamma(p)) > \delta_{\mathcal{Y}}.
+\]
+
+Cross-lineage collapse-safe maps satisfy:
+\[
+C_{\mathcal{Y}}(\Gamma(p)) \le C_{\mathcal{X}}(p).
+\]
+
+\subsection{Collapse-Risk Geometry Summary}
+
+Collapse-risk geometry defines the mathematical boundaries that prevent
+conceptual collapse between lineages. It uses collapse functions, gradients,
+curvature, tensors, and boundary conditions to ensure that operator, expressive,
+narrative, and spectral systems remain distinct and sovereign within the
+Shared-Horizon mosaic.
