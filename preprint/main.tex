@@ -1,0 +1,76 @@
+% main.tex — Shared-Horizon Preprint
+% Master assembly file
+
+\documentclass[11pt]{article}
+
+% ------------------------------------------------------------
+% Packages
+% ------------------------------------------------------------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{color}
+
+\geometry{margin=1in}
+\setstretch{1.15}
+
+% ------------------------------------------------------------
+% Title
+% ------------------------------------------------------------
+\title{Shared-Horizon:\\
+A Neutral Membrane for Lineage-Safe Comparative AI Analysis}
+
+\author{Borealis S. Hedling}
+\date{\today}
+
+% ------------------------------------------------------------
+% Document
+% ------------------------------------------------------------
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------
+% Narrative Modules
+% ------------------------------------------------------------
+
+\input{modules/introduction}
+\input{modules/background}
+\input{modules/mosaic}
+\input{modules/math-foundations}
+\input{modules/lineage-correction}
+\input{modules/membrane-architecture}
+\input{modules/case-study}
+\input{modules/discussion}
+\input{modules/conclusion}
+
+% ------------------------------------------------------------
+% Mathematical Spine
+% ------------------------------------------------------------
+
+\appendix
+\section*{Mathematical Spine}
+\addcontentsline{toc}{section}{Mathematical Spine}
+
+\input{math-spine/operators}
+\input{math-spine/expressive-manifolds}
+\input{math-spine/reversible-narrative-operators}
+\input{math-spine/stability-envelopes}
+\input{math-spine/transition-maps}
+\input{math-spine/collapse-risk-geometry}
+
+% ------------------------------------------------------------
+% References
+% ------------------------------------------------------------
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
