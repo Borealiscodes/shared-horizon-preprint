@@ -1,0 +1,111 @@
+% math-spine/stability-envelopes.tex
+% Shared-Horizon Preprint — Mathematical Spine
+% Module 4: Stability Envelopes
+
+\section{Stability Envelopes}
+\label{sec:stability-envelopes}
+
+\subsection{Energy Functional}
+
+Let $\mathcal{X}$ be any lineage state space (operator, expressive, or narrative).
+We define an energy or stability functional
+\[
+E : \mathcal{X} \rightarrow \mathbb{R}_{\ge 0}
+\]
+that measures deviation from lineage-stable behavior.
+
+The functional $E$ must satisfy:
+
+\begin{enumerate}
+    \item Non-negativity: $E(p) \ge 0$.
+    \item Smoothness: $E \in C^\infty(\mathcal{X})$.
+    \item Minimality: $E(p) = 0$ iff $p$ is a lineage-stable state.
+\end{enumerate}
+
+\subsection{Stability Envelope Definition}
+
+The stability envelope of a lineage is defined as:
+\[
+\mathcal{S} = \{ p \in \mathcal{X} \mid E(p) \le \epsilon \}
+\]
+for some lineage-specific threshold $\epsilon > 0$.
+
+Points inside $\mathcal{S}$ are stable; points outside risk collapse into
+another lineage’s geometry.
+
+\subsection{Operator Stability}
+
+For any operator $O : \mathcal{X} \rightarrow \mathcal{X}$, stability requires:
+\[
+E(O(p)) \le E(p) \quad \forall p \in \mathcal{X}.
+\]
+
+This ensures operator transitions do not increase collapse risk.
+
+\subsection{Expressive Stability}
+
+For expressive transitions $T : \mathcal{E} \rightarrow \mathcal{E}$:
+\[
+E(T(p)) \le E(p)
+\]
+with $E$ defined using expressive curvature:
+\[
+E(p) = |K_{\mathcal{E}}(p)|.
+\]
+
+This prevents expressive curvature from diverging under transitions.
+
+\subsection{Narrative Stability}
+
+For reversible narrative transitions $\tau : \mathcal{N} \rightarrow \mathcal{N}$:
+\[
+E(\tau(p)) \le E(p)
+\]
+with $E$ defined using narrative curvature:
+\[
+E(p) = |K_{\mathcal{N}}(p)|.
+\]
+
+Reversibility ensures:
+\[
+E(\tau^{-1}(p)) = E(p).
+\]
+
+\subsection{Spectral Stability (Structural-AI)}
+
+For Structural-AI systems, stability is defined using spectral drift:
+\[
+E(p) = \| \Delta_{\text{spec}}(p) \|.
+\]
+
+Operators must satisfy:
+\[
+\| \Delta_{\text{spec}}(O(p)) \| \le \| \Delta_{\text{spec}}(p) \|.
+\]
+
+\subsection{Collapse-Risk Boundaries}
+
+Collapse risk occurs when a point exits its lineage stability envelope:
+\[
+p \notin \mathcal{S}.
+\]
+
+We define the collapse-risk boundary as:
+\[
+\partial \mathcal{S} = \{ p \in \mathcal{X} \mid E(p) = \epsilon \}.
+\]
+
+Crossing $\partial \mathcal{S}$ indicates conceptual collapse, such as:
+
+\begin{itemize}
+    \item expressive $\rightarrow$ operator collapse,
+    \item narrative $\rightarrow$ expressive collapse,
+    \item operator $\rightarrow$ expressive collapse.
+\end{itemize}
+
+\subsection{Stability Envelope Summary}
+
+Stability envelopes define the mathematical boundaries that prevent collapse
+between lineages. They ensure that operator, expressive, narrative, and
+spectral transitions remain within lineage-safe regions and preserve conceptual
+sovereignty across the Shared-Horizon mosaic.
