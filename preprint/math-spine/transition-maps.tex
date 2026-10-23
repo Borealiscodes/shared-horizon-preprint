@@ -1,0 +1,125 @@
+% math-spine/transition-maps.tex
+% Shared-Horizon Preprint — Mathematical Spine
+% Module 5: Transition Maps
+
+\section{Transition Maps}
+\label{sec:transition-maps}
+
+\subsection{Cross-Manifold Transition Maps}
+
+Let $\mathcal{X}$ and $\mathcal{Y}$ be smooth manifolds representing distinct
+lineage state spaces (operator, expressive, or narrative). A transition map is a
+smooth function
+\[
+\Psi : \mathcal{X} \rightarrow \mathcal{Y}
+\]
+used to compare states across lineages without activating either lineage’s
+internal dynamics.
+
+\subsection{Smoothness Requirements}
+
+Transition maps must satisfy:
+
+\begin{enumerate}
+    \item $\Psi \in C^\infty(\mathcal{X}, \mathcal{Y})$.
+    \item $\Psi$ preserves stability envelopes:
+    \[
+    E_{\mathcal{Y}}(\Psi(p)) \le \epsilon_{\mathcal{Y}}
+    \quad \text{whenever} \quad
+    E_{\mathcal{X}}(p) \le \epsilon_{\mathcal{X}}.
+    \]
+    \item $\Psi$ does not induce collapse:
+    \[
+    \Psi(p) \notin \partial \mathcal{S}_{\mathcal{Y}}.
+    \]
+\end{enumerate}
+
+These conditions ensure lineage-safe comparison.
+
+\subsection{Local Charts and Compatibility}
+
+Let $(U, \phi)$ be a chart on $\mathcal{X}$ and $(V, \psi)$ a chart on
+$\mathcal{Y}$. The chart-level transition map is:
+\[
+\psi \circ \Psi \circ \phi^{-1} : \phi(U) \rightarrow \psi(V).
+\]
+
+Compatibility requires:
+
+\[
+\psi \circ \Psi \circ \phi^{-1} \in C^\infty(\phi(U)).
+\]
+
+This ensures that transition maps respect the smooth structure of both
+manifolds.
+
+\subsection{Jacobian Constraints}
+
+The Jacobian of the transition map,
+\[
+J_{\Psi}(p) = D\Psi(p),
+\]
+must satisfy lineage-specific constraints:
+
+\begin{itemize}
+    \item Operator $\rightarrow$ Expressive:
+    \[
+    \| J_{\Psi}(p) \| < C_{\text{op-exp}}
+    \]
+    to prevent operator curvature from overwhelming expressive curvature.
+
+    \item Expressive $\rightarrow$ Narrative:
+    \[
+    \det J_{\Psi}(p) \neq 0
+    \]
+    to preserve narrative reversibility.
+
+    \item Narrative $\rightarrow$ Operator:
+    \[
+    J_{\Psi}(p) \text{ bounded}
+    \]
+    to prevent narrative curvature from inducing operator collapse.
+\end{itemize}
+
+\subsection{Transition Map Families}
+
+A family of transition maps is defined as:
+\[
+\mathcal{T} = \{ \Psi_1, \Psi_2, \ldots, \Psi_k \}
+\]
+with each $\Psi_i$ satisfying:
+
+\begin{enumerate}
+    \item Smoothness.
+    \item Stability preservation.
+    \item Collapse-risk avoidance.
+\end{enumerate}
+
+Families are used for comparative membrane analysis.
+
+\subsection{Bidirectional Transition Maps}
+
+Bidirectional maps satisfy:
+
+\[
+\Psi^{-1} \text{ exists and is smooth}.
+\]
+
+Bidirectional maps are required for reversible narrative comparison:
+
+\[
+\Psi : \mathcal{N} \leftrightarrow \mathcal{N}'.
+\]
+
+They preserve narrative curvature:
+
+\[
+K_{\mathcal{N}'}(\Psi(p)) = K_{\mathcal{N}}(p).
+\]
+
+\subsection{Transition Map Summary}
+
+Transition maps define lineage-safe comparisons between operator, expressive,
+and narrative manifolds. They preserve stability envelopes, respect smooth
+structure, and avoid collapse-risk boundaries. These maps form the mathematical
+basis for Shared-Horizon’s neutral comparative membrane.
