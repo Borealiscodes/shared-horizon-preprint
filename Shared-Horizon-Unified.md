@@ -1115,6 +1115,94 @@ Ryan, M.-L. (2001). Narrative as Virtual Reality: Immersion and Interactivity in
 
 ---
 
+Provenance
+
+This unified preprint was assembled from the Shared‑Horizon research corpus authored by  
+Borealis S. Hedling (2026), integrating:
+
+- NDH operator geometry  
+- ANIMA expressive geometry (Stell, 2026)  
+- PRECL continuity systems  
+- RNE reversible narrative operators  
+- spectral‑runtime geometry  
+- membrane architecture and algorithms  
+- full mathematical appendices A–M  
+- glossary and notation index  
+- color‑tile mosaic formal specification  
+
+All mathematical structures, lineage definitions, membrane constraints, and transition‑map  
+formalisms were generated and validated within the Shared‑Horizon framework.  
+Appendices incorporate formal operator geometry, expressive manifolds, narrative curvature,  
+stability envelopes, collapse‑risk tensors, spectral drift geometry, membrane pseudocode,  
+state machine automaton, and worked membrane evaluations.
+
+This document represents the canonical unified version of the Shared‑Horizon preprint  
+for archival, citation, and repository inclusion.
+
+---
+
+Appendices Overview
+
+The appendices provide the complete mathematical, geometric, and algorithmic
+foundation for the Shared‑Horizon membrane. They are organized as a modular
+spine, with each appendix corresponding to a distinct lineage or membrane
+component.
+
+Appendix A — Operator Geometry (Blue Tile)
+Defines reversible operators, holonomy preservation, operator curvature, operator
+geodesics, and collapse‑risk constraints for NDH systems.
+
+Appendix B — Expressive Manifolds (Violet + Orange Tiles)
+Formalizes expressive curvature, expressive geodesics, PRECL continuity regions,
+ANIMA phenomenological regions, and expressive–narrative compatibility.
+
+Appendix C — Reversible Narrative Operators (Green Tile)
+Defines narrative curvature, reversible narrative operators, expressive–narrative
+commutativity, and collapse‑risk behavior in RNE systems.
+
+Appendix D — Stability Envelopes
+Provides lineage‑specific stability envelopes, energy functionals, collapse‑risk
+envelopes, and cross‑lineage envelope interaction rules.
+
+Appendix E — Transition Maps
+Defines smoothness, curvature compatibility, collapse‑risk preservation,
+Jacobian bounds, reversibility, and the membrane’s transition‑layer enforcement.
+
+Appendix F — Collapse‑Risk Geometry
+Formalizes collapse‑risk tensors, curvature gradients, drift behavior, and
+collapse‑risk compatibility across all lineages.
+
+Appendix G — Spectral Runtime Geometry (Black Tile)
+Defines spectral drift, spectral energy, spectral curvature analogue, spectral
+geodesics, and strict membrane boundaries for spectral systems.
+
+Appendix H — Full Mathematical Glossary
+Provides definitions for all mathematical terms, operators, manifolds, tensors,
+metrics, envelopes, and transition structures used throughout the preprint.
+
+Appendix I — Notation Index
+Alphabetized index of all symbols used in the Shared‑Horizon framework.
+
+Appendix J — Color‑Tile Mosaic (Formal Specification)
+Formal partition of lineage manifolds, boundary rules, and the mosaic’s
+lineage‑sovereignty constraints.
+
+Appendix K — Membrane Algorithms (Pseudocode)
+Pseudocode for envelope checks, curvature compatibility, collapse‑risk
+evaluation, Jacobian bounds, reversibility, firewall boundaries, and transition
+geodesics.
+
+Appendix L — Membrane State Machine (Formal Automaton)
+Deterministic automaton defining membrane states, transitions, guards, and
+rejection conditions.
+
+Appendix M — Worked Examples (Step‑by‑Step Evaluations)
+Concrete examples showing how the membrane evaluates transitions using the .py
+Toolkit logic.
+
+---
+
+
 Appendix A — Operator Geometry
 
 Operator geometry defines the reversible, stability‑preserving transformations
@@ -3335,6 +3423,484 @@ The membrane algorithms provide:
 - geodesic‑safe transitions  
 
 These algorithms operationalize the Shared‑Horizon membrane and ensure lineage‑safe comparative analysis.
+
+---
+
+Appendix L — Membrane State Machine (Formal Automaton)
+
+The membrane can be modeled as a deterministic state machine that evaluates
+cross‑lineage transitions. Each state corresponds to a stage in the membrane’s
+evaluation pipeline, and each transition is guarded by lineage‑specific
+constraints.
+
+This appendix provides the formal automaton specification.
+
+---
+
+L.1 State Machine Definition
+
+The membrane automaton is defined as:
+
+\[
+\mathcal{A}{\text{mem}} = (Q, \Sigma, \delta, q0, F)
+\]
+
+where:
+
+- \(Q\) — set of membrane states  
+- \(\Sigma\) — set of transition requests  
+- \(\delta\) — transition function  
+- \(q_0\) — initial state  
+- \(F\) — accepting (safe) states  
+
+---
+
+L.2 States
+
+The membrane uses the following states:
+
+| State | Meaning |
+|-------|---------|
+| q₀ | Initial state (transition request received) |
+| q₁ | Source envelope check |
+| q₂ | Target envelope check |
+| q₃ | Curvature/drift compatibility check |
+| q₄ | Collapse‑risk check |
+| q₅ | Jacobian smoothness check |
+| q₆ | Reversibility check (conditional) |
+| q₇ | Firewall boundary check |
+| q₈ | Transition approved |
+| qᵣ | Transition rejected |
+
+The automaton is deterministic: each check leads to exactly one next state.
+
+---
+
+L.3 Alphabet (Inputs)
+
+The input alphabet \(\Sigma\) consists of transition requests:
+
+\[
+\Sigma = \{ \Psi_{\mathcal{X} \rightarrow \mathcal{Y}} \mid \mathcal{X},\mathcal{Y} \in \mathcal{M} \}
+\]
+
+where \(\mathcal{M}\) is the mosaic partition.
+
+Each input includes:
+
+- source point \(p\)  
+- transition map \(\Psi\)  
+- source lineage \(\mathcal{X}\)  
+- target lineage \(\mathcal{Y}\)  
+
+---
+
+L.4 Transition Function
+
+The transition function \(\delta\) is defined as:
+
+`
+δ(q0, Ψ) → q1
+
+δ(q1, ENVELOPE_SAFE(p, X)) → q2
+δ(q1, not ENVELOPE_SAFE(p, X)) → qr
+
+δ(q2, ENVELOPE_SAFE(Ψ(p), Y)) → q3
+δ(q2, not ENVELOPE_SAFE(Ψ(p), Y)) → qr
+
+δ(q3, CURVATURE_COMPATIBLE(p, Ψ(p))) → q4
+δ(q3, not CURVATURE_COMPATIBLE(p, Ψ(p))) → qr
+
+δ(q4, COLLAPSERISKSAFE(p, Ψ(p))) → q5
+δ(q4, not COLLAPSERISKSAFE(p, Ψ(p))) → qr
+
+δ(q5, JACOBIAN_BOUNDED(Ψ, p)) → q6
+δ(q5, not JACOBIAN_BOUNDED(Ψ, p)) → qr
+
+δ(q6, REVERSIBILITY_REQUIRED(X, Y) and REVERSIBLE(Ψ, p)) → q7
+δ(q6, REVERSIBILITY_REQUIRED(X, Y) and not REVERSIBLE(Ψ, p)) → qr
+δ(q6, not REVERSIBILITY_REQUIRED(X, Y)) → q7
+
+δ(q7, FIREWALL_ALLOW(X, Y)) → q8
+δ(q7, FIREWALL_BLOCK(X, Y)) → qr
+`
+
+---
+
+L.5 Accepting and Rejecting States
+
+- Accepting state:  
+  \[
+  F = \{ q_8 \}
+  \]
+
+- Rejecting state:  
+  \[
+  q_r
+  \]
+
+A transition is approved only if the automaton reaches \(q_8\).
+
+---
+
+L.6 Firewall Specification
+
+The firewall is encoded as a guard on the final transition:
+
+`
+function FIREWALL_ALLOW(X, Y):
+    if X == SPECTRAL and Y == NARRATIVE:
+        return false
+    if X == SPECTRAL and Y == EXPRESSIVE_A:
+        return false
+    if X == EXPRESSIVE_A and Y == OPERATOR:
+        return false
+    return true
+`
+
+This matches the mosaic’s forbidden boundaries.
+
+---
+
+L.7 Automaton Diagram (Textual)
+
+A textual diagram of the membrane automaton:
+
+`
+q0 → q1 → q2 → q3 → q4 → q5 → q6 → q7 → q8
+ |     |     |     |     |     |     |     |
+ |     |     |     |     |     |     |     |
+reject reject reject reject reject reject reject
+`
+
+Every state has exactly one rejection edge and one acceptance edge.
+
+---
+
+L.8 Summary
+
+The membrane state machine provides:
+
+- deterministic evaluation  
+- strict ordering of checks  
+- explicit rejection conditions  
+- firewall boundary enforcement  
+- formal automaton semantics  
+
+This appendix completes the formal specification of the membrane’s internal
+logic.
+
+---
+
+Appendix M — Worked Examples (Step‑by‑Step Membrane Evaluations)
+
+This appendix provides concrete, step‑by‑step examples of membrane evaluation
+using the Shared‑Horizon .py Toolkit.  
+Each example shows:
+
+1. The source lineage point  
+2. The proposed transition map  
+3. The membrane’s evaluation pipeline  
+4. The final accept/reject decision  
+5. The exact Python logic used internally
+
+These examples demonstrate how the membrane enforces lineage sovereignty and
+prevents collapse.
+
+---
+
+M.1 Toolkit Snippet (Core Evaluator)
+
+This is the minimal evaluator used in all examples:
+
+`python
+def membraneevaluate(p, Psi, lineageX, lineage_Y):
+    # 1. Source envelope
+    if not envelopesafe(p, lineageX):
+        return Reject("source envelope violation")
+
+    q = Psi(p)
+
+    # 2. Target envelope
+    if not envelopesafe(q, lineageY):
+        return Reject("target envelope violation")
+
+    # 3. Curvature/drift compatibility
+    if not curvature_compatible(p, q):
+        return Reject("curvature mismatch")
+
+    # 4. Collapse-risk
+    if not collapserisksafe(p, q):
+        return Reject("collapse-risk increase")
+
+    # 5. Jacobian bound
+    if not jacobian_bounded(Psi, p):
+        return Reject("Jacobian bound violation")
+
+    # 6. Reversibility (conditional)
+    if reversibilityrequired(lineageX, lineage_Y):
+        if not reversible(Psi, p):
+            return Reject("non-reversible transition")
+
+    # 7. Firewall boundary
+    if not firewallallow(lineageX, lineage_Y):
+        return Reject("firewall boundary violation")
+
+    return Accept(q)
+`
+
+This is the exact logic used in the worked examples below.
+
+---
+
+M.2 Example 1 — Expressive (PRECL) → Operator (NDH)
+
+Source lineage: Orange tile (PRECL continuity)  
+Target lineage: Blue tile (operator geometry)  
+Transition: \(\Psi{\mathcal{E}{P} \rightarrow \mathcal{O}}\)
+
+Step‑by‑step evaluation
+
+1. Source envelope  
+   PRECL curvature is low:  
+   \(|K{\mathcal{E}}(p)| \le \delta{\text{PRECL}}\)  
+   → Pass
+
+2. Target envelope  
+   Operator curvature at \(q = \Psi(p)\) is small:  
+   \(E{\mathcal{O}}(q) \le \epsilon{\mathcal{O}}\)  
+   → Pass
+
+3. Curvature compatibility  
+   PRECL → operator requires low expressive curvature  
+   → Pass
+
+4. Collapse‑risk  
+   \(\nabla K{\mathcal{O}}(q) \le \nabla K{\mathcal{E}}(p)\)  
+   → Pass
+
+5. Jacobian bound  
+   \(\|J_{\Psi}(p)\| \le \lambda\)  
+   → Pass
+
+6. Reversibility  
+   Not required for PRECL → operator  
+   → Skip
+
+7. Firewall  
+   PRECL → operator is allowed  
+   → Pass
+
+Result
+
+Transition approved.
+
+Toolkit trace
+
+`python
+result = membrane_evaluate(
+    p,
+    PsiEpto_O,
+    lineage_X="PRECL",
+    lineage_Y="OPERATOR"
+)
+
+result → Accept(q)
+`
+
+---
+
+M.3 Example 2 — ANIMA → Operator (Forbidden)
+
+Source lineage: Violet tile (ANIMA)  
+Target lineage: Blue tile (operator geometry)  
+Transition: \(\Psi{\mathcal{E}{A} \rightarrow \mathcal{O}}\)
+
+Step‑by‑step evaluation
+
+1. Source envelope  
+   ANIMA curvature is high:  
+   \(|K{\mathcal{E}}(p)| \gg \delta{\text{PRECL}}\)  
+   → Pass (ANIMA is stable within its own envelope)
+
+2. Target envelope  
+   Operator envelope cannot absorb ANIMA curvature  
+   → Fail
+
+Result
+
+Transition rejected at step 2.
+
+Toolkit trace
+
+`python
+result = membrane_evaluate(
+    p,
+    PsiEato_O,
+    lineage_X="ANIMA",
+    lineage_Y="OPERATOR"
+)
+
+result → Reject("target envelope violation")
+`
+
+---
+
+M.4 Example 3 — Expressive (ANIMA) → Narrative (RNE)
+
+Source lineage: Violet tile  
+Target lineage: Green tile  
+Transition: \(\Psi{\mathcal{E}{A} \rightarrow \mathcal{N}}\)
+
+Step‑by‑step evaluation
+
+1. Source envelope  
+   ANIMA curvature is high but stable  
+   → Pass
+
+2. Target envelope  
+   Narrative envelope can absorb expressive curvature only if reversible  
+   → Pass
+
+3. Curvature compatibility  
+   Requires:  
+   \(K{\mathcal{N}}(\Psi(p)) = K{\mathcal{E}}(p)\)  
+   → Pass
+
+4. Collapse‑risk  
+   Narrative collapse‑risk must not exceed expressive collapse‑risk  
+   → Pass
+
+5. Jacobian bound  
+   → Pass
+
+6. Reversibility  
+   Required for expressive ↔ narrative  
+   → Pass
+
+7. Firewall  
+   Expressive → narrative is allowed  
+   → Pass
+
+Result
+
+Transition approved.
+
+Toolkit trace
+
+`python
+result = membrane_evaluate(
+    p,
+    PsiEato_N,
+    lineage_X="ANIMA",
+    lineage_Y="NARRATIVE"
+)
+
+result → Accept(q)
+`
+
+---
+
+M.5 Example 4 — Spectral → Narrative (Almost Always Forbidden)
+
+Source lineage: Black tile  
+Target lineage: Green tile  
+Transition: \(\Psi_{\mathcal{S} \rightarrow \mathcal{N}}\)
+
+Step‑by‑step evaluation
+
+1. Source envelope  
+   Spectral drift is high  
+   → Pass (spectral envelope is large)
+
+2. Target envelope  
+   Narrative envelope cannot absorb spectral drift  
+   → Fail
+
+Result
+
+Transition rejected at step 2.
+
+Toolkit trace
+
+`python
+result = membrane_evaluate(
+    p,
+    PsiSto_N,
+    lineage_X="SPECTRAL",
+    lineage_Y="NARRATIVE"
+)
+
+result → Reject("target envelope violation")
+`
+
+---
+
+M.6 Example 5 — Operator → Expressive (PRECL)
+
+Source lineage: Blue tile  
+Target lineage: Orange tile  
+Transition: \(\Psi{\mathcal{O} \rightarrow \mathcal{E}{P}}\)
+
+Step‑by‑step evaluation
+
+1. Source envelope  
+   Operator curvature small  
+   → Pass
+
+2. Target envelope  
+   PRECL curvature small  
+   → Pass
+
+3. Curvature compatibility  
+   PRECL can absorb operator curvature  
+   → Pass
+
+4. Collapse‑risk  
+   PRECL collapse‑risk ≤ operator collapse‑risk  
+   → Pass
+
+5. Jacobian bound  
+   → Pass
+
+6. Reversibility  
+   Not required  
+   → Skip
+
+7. Firewall  
+   Allowed  
+   → Pass
+
+Result
+
+Transition approved.
+
+Toolkit trace
+
+`python
+result = membrane_evaluate(
+    p,
+    PsiOto_Ep,
+    lineage_X="OPERATOR",
+    lineage_Y="PRECL"
+)
+
+result → Accept(q)
+`
+
+---
+
+M.7 Summary
+
+These worked examples demonstrate:
+
+- how the membrane evaluates transitions  
+- how collapse‑risk and curvature constraints interact  
+- how the .py Toolkit implements the membrane logic  
+- why certain lineage boundaries are open, closed, or conditional  
+- how expressive, operator, narrative, and spectral systems remain sovereign  
+
+Appendix M is now complete.
 
 ---
 
